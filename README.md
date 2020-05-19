@@ -1,31 +1,22 @@
-# Decorator Sample
+# Light up running code
 
-This folder contains a sample VS code extension that demonstrates the editor decorator API.
+## What is this?
 
-The sample creates a decoration for each number that appears in the active editor. It
-demonstrates some of the decorator features such as borders, background colors, cursors
-and hovers.
+A quick and dirty proof-of-concept of an idea I had – what if when you ran code, the relevant lines lit up in your text editor? And maybe those lines which ran the most lit up the brightest?
 
-The sample also shows the use of a user defined themeable color. Instead of hardcoding a color value this allows users (and themes) to redefine the color in the user settings.
+## Demo
 
-![sample](preview.png)
+![Screen recording](https://user-images.githubusercontent.com/1694410/82281107-82e14b80-995e-11ea-9229-ed5b7252a0a7.gif)
 
-## VSCode API
+## How this works
 
-The sample code show the usage of the vscode.[`TextEditor.setDecorations`](https://code.visualstudio.com/api/references/vscode-api#TextEditor.setDecorations) and [`vscode.window.createTextEditorDecorationType`](https://code.visualstudio.com/api/references/vscode-api#window.createTextEditorDecorationType) APIs as well as the `colors` contribution point.
+The implementation here consists of a Ruby agent and a VS Code extension. The agent profiles running code and pings messages to a socket, which the extension listens for and surfaces in the editor.
 
-## Running the Sample
+## Run this yourself locally
 
-* `npm install` to initialize the project
-* `npm run watch` to start the compiler in watch mode
-* open this folder in VS Code and press `F5`
-* this will open the `[Extension Development Host]` window, running the extension:
-  * Open any document that contains single and multi-digit numbers.
-  * The extension will decorate single and multiple-digit numbers as shown in the screenshot above.
-  * In the user settings, add
-    ```
-    "workbench.colorCustomizations": {
-        "myextension.largeNumberBackground": "#ff00ff"
-    }
-    ```
-    to customize the large number decoration color.
+1. Clone the repository
+2. Open it in VS Code
+3. Press F5 (or Run > Start Debugging)
+4. Open the `agent` directory in this respository in the resulting VS Code window (labelled ‘Extension Development Host’)
+5. Run the example script in the `agent` directory, `ruby example.rb`
+6. Watch the lines of code light up as they run
