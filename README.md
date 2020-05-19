@@ -15,8 +15,9 @@ The implementation here consists of a Ruby agent and a VS Code extension. The ag
 ## Run this yourself locally
 
 1. Clone the repository
-2. Open it in VS Code
-3. Press F5 (or Run > Start Debugging)
-4. Open the `agent` directory in this respository in the resulting VS Code window (labelled ‘Extension Development Host’)
-5. Run the example script in the `agent` directory, `ruby example.rb`
-6. Watch the lines of code light up as they run
+2. Run the build/watch script: `bin/build`
+3. Open it in VS Code
+4. Press F5 (or Run > Start Debugging)
+5. Open the `agent` directory in this respository in the resulting VS Code window (labelled ‘Extension Development Host’)
+6. Run the example script in the `agent` directory, `ruby example.rb`
+7. Watch the lines of code light up as they run
